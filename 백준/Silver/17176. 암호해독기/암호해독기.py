@@ -1,13 +1,13 @@
 n = int(input())
 
 numlist = list(map(int, input().split()))
-str = input()
+s = input()
 encryption = []
 
-if len(str) != len(numlist):
+if len(numlist) != len(s):
     print('n')
 else:
-    for i in str:
+    for i in s:
         if i.isupper():
             encryption.append(ord(i) - 64)
         elif i.islower():
@@ -19,10 +19,10 @@ else:
     encryption.sort()
     flag = 0
 
-    for i in range(len(numlist)):
+    for i in range(n):
         if numlist[i] != encryption[i]:
-            print("n")
+            print('n')
             flag = 1
             break
     if flag == 0:
-        print("y")    
+        print('y')
