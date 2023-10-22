@@ -1,18 +1,14 @@
 while True:
-    d, m, y = map(int, input().split())
-    month_day = [0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30]
-    result = 0
-
-    if y == 0 and m == 0 and d == 0:
+    day, month, year = map(int, input().split())
+    
+    if year == 0 and month == 0 and day == 0:
         break
 
-    if (y % 4 == 0 and y % 100 != 0) or y % 400 == 0:
-        if m > 2:  
-            result += 1
+    days_in_month = [0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30]
+    
+    if (year % 4 == 0 and year % 100 != 0) or year % 400 == 0:
+        days_in_month[2] = 29
 
-    for i in range(m):
-        result += month_day[i]
+    total_days = sum(days_in_month[:month]) + day
 
-    result += d
-
-    print(result)
+    print(total_days)
